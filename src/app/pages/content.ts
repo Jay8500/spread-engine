@@ -9,6 +9,16 @@ export const STACK = [
   { icon: 'smartphone', label: 'PWA' },
 ];
 
+/** "Know the stack" cards: what each tool is, why it's here, and where to learn it. */
+export const TECHS = [
+  { icon: 'layers', name: 'Angular', by: 'by Google', what: 'A complete framework for web apps: routing, forms, SSR and signals built in.', why: 'Stable, typed, great for long-lived client projects and teams.', url: 'https://angular.dev' },
+  { icon: 'palette', name: 'Tailwind CSS', by: 'v4', what: 'Utility-first styling right in your HTML. No more giant CSS files.', why: 'Fast to build, easy to keep a consistent brand.', url: 'https://tailwindcss.com' },
+  { icon: 'database', name: 'Supabase', by: 'Postgres', what: 'A Postgres database with login, storage and realtime — open source.', why: 'Real SQL and Row Level Security, with a free tier to start.', url: 'https://supabase.com' },
+  { icon: 'cloud', name: 'Netlify', by: 'hosting', what: 'Hosting with Git deploys, serverless functions, env vars and HTTPS.', why: 'Push to GitHub and it’s live. Previews for every change.', url: 'https://www.netlify.com' },
+  { icon: 'mail', name: 'Resend', by: 'email', what: 'A simple email API for developers, sent from your own domain.', why: 'Contact forms, waitlists and alerts in a few lines.', url: 'https://resend.com' },
+  { icon: 'smartphone', name: 'PWA', by: 'web standard', what: 'Install your web app on phones and desktops, like a store app.', why: 'No app store needed. Works on slow networks.', url: 'https://web.dev/explore/progressive-web-apps' },
+];
+
 export const FEATURES = [
   { icon: 'terminal', title: 'One-command project', text: 'Angular 22 with SSR and prerender, strict TypeScript, clean folders. Ready to run.', tag: 'Free' },
   { icon: 'palette', title: 'Tailwind ready', text: 'Tailwind v4 wired in, plus a theme with your brand colour and light/dark mode.', tag: 'Free' },

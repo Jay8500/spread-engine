@@ -1,21 +1,23 @@
 import { Component, afterNextRender, computed, signal } from '@angular/core';
 import { AdSlot } from '../shared/ad-slot';
 import { CodeBlock } from '../shared/code-block';
+import { DemoPlayer } from '../shared/demo-player';
 import { Icon } from '../shared/icon';
 import { EngineLogo, EngineMark } from '../shared/logo';
 import { Waitlist } from '../shared/waitlist';
-import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, VERSIONS } from './content';
+import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, TECHS, VERSIONS } from './content';
 
 /** Cover page for engine.spreadapps.in — what the engine does, setup steps, code, versions + waitlist. */
 @Component({
   selector: 'se-home',
-  imports: [Icon, EngineLogo, EngineMark, Waitlist, CodeBlock, AdSlot],
+  imports: [Icon, EngineLogo, EngineMark, Waitlist, CodeBlock, AdSlot, DemoPlayer],
   template: `
     <!-- Nav -->
     <header class="sticky top-0 z-30 border-b border-line/70 bg-white/85 backdrop-blur">
       <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
         <a href="#top" aria-label="Spread Engine home"><se-logo [size]="30" /></a>
         <div class="hidden items-center gap-6 text-sm font-semibold text-muted md:flex">
+          <a href="#demo" class="hover:text-brand">Demo</a>
           <a href="#features" class="hover:text-brand">What it does</a>
           <a href="#steps" class="hover:text-brand">Steps</a>
           <a href="#code" class="hover:text-brand">Code</a>
@@ -45,7 +47,8 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
             </p>
             <div class="mt-7 flex flex-wrap gap-3">
               <a href="#join" class="btn btn-primary">Join the waitlist <svg lucideIcon="chevron-right" [size]="18" /></a>
-              <a href="downloads/spread-engine-setup-steps.md" download class="btn btn-ghost"><svg lucideIcon="download" [size]="18" /> Download setup steps</a>
+              <a href="#demo" class="btn btn-ghost"><span class="text-xs">▶</span> Watch the demo</a>
+              <a href="downloads/spread-engine-setup-steps.md" download class="btn btn-ghost"><svg lucideIcon="download" [size]="18" /> Setup steps</a>
             </div>
             <p class="mt-4 text-xs text-muted">Free core · Your accounts, your keys · Plain code, no lock-in</p>
           </div>
@@ -86,6 +89,15 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
         </div>
       </section>
 
+      <!-- Demo -->
+      <section id="demo" class="mx-auto max-w-6xl px-4 pt-16">
+        <p class="eyebrow">Watch it work</p>
+        <h2 class="mt-2 text-3xl font-extrabold sm:text-4xl">From npm to a live app, in one short demo.</h2>
+        <p class="mt-2 max-w-2xl text-muted">Create, connect, start and stop on your own machine with a local preview, then push it online. Tap any chapter to jump.</p>
+        <se-demo-player class="mt-8" />
+        <p class="mt-3 text-xs text-muted">Animated walkthrough of the planned workflow. A screen recording of the real tool comes with the first release.</p>
+      </section>
+
       <!-- Features -->
       <section id="features" class="mx-auto max-w-6xl px-4 py-16">
         <p class="eyebrow">What it does</p>
@@ -119,6 +131,26 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
               </div>
             }
           </div>
+        </div>
+      </section>
+
+      <!-- Know the stack -->
+      <section id="stack" class="mx-auto max-w-6xl px-4 py-16">
+        <p class="eyebrow">Know the stack</p>
+        <h2 class="mt-2 text-3xl font-extrabold sm:text-4xl">Modern tools. New to them? Start here.</h2>
+        <p class="mt-2 max-w-2xl text-muted">Coming from PHP, WordPress or plain HTML? Every tool the engine uses is popular, well documented and free to start.</p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          @for (t of techs; track t.name) {
+            <div class="card flex flex-col p-5 transition hover:-translate-y-1 hover:border-brand-3 hover:shadow-lg">
+              <div class="flex items-center gap-3">
+                <span class="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand"><svg [lucideIcon]="t.icon" [size]="20" /></span>
+                <div><h3 class="font-bold leading-tight">{{ t.name }}</h3><p class="text-xs text-muted">{{ t.by }}</p></div>
+              </div>
+              <p class="mt-3 text-sm">{{ t.what }}</p>
+              <p class="mt-1 text-sm text-muted">{{ t.why }}</p>
+              <a [href]="t.url" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-brand hover:underline">Official docs <svg lucideIcon="chevron-right" [size]="14" /></a>
+            </div>
+          }
         </div>
       </section>
 
@@ -304,6 +336,7 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
 export class Home {
   protected readonly year = new Date().getFullYear();
   protected readonly stack = STACK;
+  protected readonly techs = TECHS;
   protected readonly features = FEATURES;
   protected readonly audience = AUDIENCE;
   protected readonly steps = STEPS;
