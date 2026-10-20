@@ -28,6 +28,16 @@ export const STACKS = [
   },
 ];
 
+/** Open-source credits: the projects this site and the engine stand on. */
+export const CREDITS = [
+  { name: 'Angular', by: 'Google', license: 'MIT', url: 'https://angular.dev' },
+  { name: 'Tailwind CSS', by: 'Tailwind Labs', license: 'MIT', url: 'https://tailwindcss.com' },
+  { name: 'Supabase', by: 'Supabase Inc.', license: 'Apache-2.0', url: 'https://supabase.com' },
+  { name: 'Lucide icons', by: 'Lucide contributors', license: 'ISC', url: 'https://lucide.dev' },
+  { name: 'Inter & Plus Jakarta Sans', by: 'Google Fonts', license: 'OFL', url: 'https://fonts.google.com' },
+  { name: 'Netlify & Resend', by: 'hosting and email', license: 'services', url: 'https://www.netlify.com' },
+];
+
 /** "Know the stack" cards: what each tool is, why it's here, and where to learn it. */
 export const TECHS = [
   { icon: 'layers', name: 'Angular', by: 'by Google', what: 'A complete framework for web apps: routing, forms, SSR and signals built in.', why: 'Stable, typed, great for long-lived client projects and teams.', url: 'https://angular.dev' },

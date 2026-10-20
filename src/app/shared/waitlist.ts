@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 type State = 'idle' | 'sending' | 'done' | 'error';
 
 /** Waitlist form (stored in Netlify Blobs by netlify/functions/waitlist.mts, owner email via Resend). */
 @Component({
   selector: 'se-waitlist',
+  imports: [RouterLink],
   template: `
     @if (state() === 'done') {
       <div class="rounded-3xl bg-white p-6 text-ink shadow-xl" role="status">
@@ -38,7 +40,7 @@ type State = 'idle' | 'sending' | 'done' | 'error';
         </div>
         <label class="flex items-start gap-2 text-xs text-muted">
           <input type="checkbox" class="mt-0.5 size-4 accent-[#0d9488]" [checked]="agree()" (change)="agree.set(!agree())" />
-          <span>I agree that Spread Apps may email me about Spread Engine's launch. I can unsubscribe any time.</span>
+          <span>I'm 18+ and agree that Spread Apps may use my details to email me about Spread Engine's launch, as in the <a routerLink="/privacy" class="font-semibold text-brand underline">privacy notice</a>. I can withdraw any time.</span>
         </label>
         @if (touched() && !agree()) { <p class="-mt-1 text-xs text-rose-600" role="alert">Please tick the box to join</p> }
         <!-- Hidden from people; bots fill it -->

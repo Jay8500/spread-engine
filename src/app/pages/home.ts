@@ -1,15 +1,16 @@
 import { Component, afterNextRender, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AdSlot } from '../shared/ad-slot';
 import { CodeBlock } from '../shared/code-block';
 import { Icon } from '../shared/icon';
 import { EngineLogo, EngineMark } from '../shared/logo';
 import { Waitlist } from '../shared/waitlist';
-import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS, STEPS, TECHS, VERSIONS } from './content';
+import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS, STEPS, TECHS, VERSIONS } from './content';
 
 /** Cover page for engine.spreadapps.in — what the engine does, setup steps, code, versions + waitlist. */
 @Component({
   selector: 'se-home',
-  imports: [Icon, EngineLogo, EngineMark, Waitlist, CodeBlock, AdSlot],
+  imports: [RouterLink, Icon, EngineLogo, EngineMark, Waitlist, CodeBlock, AdSlot],
   template: `
     <!-- Nav -->
     <header class="sticky top-0 z-30 border-b border-line/70 bg-white/85 backdrop-blur">
@@ -354,6 +355,24 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS,
       </section>
     </main>
 
+    <!-- Credits -->
+    <section id="credits" class="border-t border-line bg-brand-50/40">
+      <div class="mx-auto max-w-6xl px-4 py-10 text-center">
+        <p class="eyebrow">Credits</p>
+        <h2 class="mt-2 text-xl font-extrabold">Standing on the shoulders of open source ❤️</h2>
+        <p class="mx-auto mt-1 max-w-2xl text-sm text-muted">Spread Engine brings together tools made by these teams and communities. Thank you.</p>
+        <ul class="mt-5 flex flex-wrap justify-center gap-2">
+          @for (c of credits; track c.name) {
+            <li><a [href]="c.url" target="_blank" rel="noopener" class="chip hover:border-brand-3 hover:text-brand">{{ c.name }} <span class="font-medium text-muted">· {{ c.by }} · {{ c.license }}</span></a></li>
+          }
+        </ul>
+        <p class="mx-auto mt-5 max-w-3xl text-[11px] leading-relaxed text-muted">
+          Angular is a trademark of Google LLC. Tailwind CSS, Supabase, Netlify and Resend are trademarks of their owners.
+          Names are used only to describe compatibility. Spread Engine is an independent project and is not affiliated with or endorsed by them.
+        </p>
+      </div>
+    </section>
+
     <footer class="border-t border-line">
       <div class="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-8 text-center text-sm text-muted sm:flex-row sm:justify-between sm:text-left">
         <se-logo [size]="26" />
@@ -361,6 +380,7 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS,
         <div class="flex gap-4">
           <a href="https://tools.spreadapps.in" class="font-semibold hover:text-brand">Free tools</a>
           <a href="https://setu.spreadapps.in" class="font-semibold hover:text-brand">Setu</a>
+          <a routerLink="/privacy" class="font-semibold hover:text-brand">Privacy</a>
         </div>
       </div>
     </footer>
@@ -375,6 +395,7 @@ export class Home {
   protected readonly stack = STACK;
   protected readonly techs = TECHS;
   protected readonly stacks = STACKS;
+  protected readonly credits = CREDITS;
   protected readonly features = FEATURES;
   protected readonly audience = AUDIENCE;
   protected readonly steps = STEPS;
