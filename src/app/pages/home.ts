@@ -1,7 +1,6 @@
 import { Component, afterNextRender, computed, signal } from '@angular/core';
 import { AdSlot } from '../shared/ad-slot';
 import { CodeBlock } from '../shared/code-block';
-import { DemoPlayer } from '../shared/demo-player';
 import { Icon } from '../shared/icon';
 import { EngineLogo, EngineMark } from '../shared/logo';
 import { Waitlist } from '../shared/waitlist';
@@ -10,7 +9,7 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
 /** Cover page for engine.spreadapps.in — what the engine does, setup steps, code, versions + waitlist. */
 @Component({
   selector: 'se-home',
-  imports: [Icon, EngineLogo, EngineMark, Waitlist, CodeBlock, AdSlot, DemoPlayer],
+  imports: [Icon, EngineLogo, EngineMark, Waitlist, CodeBlock, AdSlot],
   template: `
     <!-- Nav -->
     <header class="sticky top-0 z-30 border-b border-line/70 bg-white/85 backdrop-blur">
@@ -94,8 +93,11 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
         <p class="eyebrow">Watch it work</p>
         <h2 class="mt-2 text-3xl font-extrabold sm:text-4xl">From npm to a live app, in one short demo.</h2>
         <p class="mt-2 max-w-2xl text-muted">Create, connect, start and stop on your own machine with a local preview, then push it online. Tap any chapter to jump.</p>
-        <se-demo-player class="mt-8" />
-        <p class="mt-3 text-xs text-muted">Animated walkthrough of the planned workflow. A screen recording of the real tool comes with the first release.</p>
+        <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-2xl shadow-brand/10">
+          <video class="block aspect-[1120/460] w-full bg-slate-50" src="demo/how-it-works.mp4" poster="demo/how-it-works.jpg"
+                 controls playsinline muted loop preload="none" aria-label="Spread Engine how-it-works video: create, connect, start, stop, go live"></video>
+        </div>
+        <p class="mt-3 text-xs text-muted">Walkthrough of the planned workflow (34 s, no sound). A recording of the real tool comes with the first release.</p>
       </section>
 
       <!-- Features -->

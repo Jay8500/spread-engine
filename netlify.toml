@@ -27,3 +27,13 @@
   [headers.values]
     Content-Type = "text/markdown; charset=utf-8"
     Content-Disposition = "attachment"
+
+[[headers]]
+  for = "/record*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/demo/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
