@@ -4,7 +4,7 @@ import { CodeBlock } from '../shared/code-block';
 import { Icon } from '../shared/icon';
 import { EngineLogo, EngineMark } from '../shared/logo';
 import { Waitlist } from '../shared/waitlist';
-import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, TECHS, VERSIONS } from './content';
+import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS, STEPS, TECHS, VERSIONS } from './content';
 
 /** Cover page for engine.spreadapps.in — what the engine does, setup steps, code, versions + waitlist. */
 @Component({
@@ -16,6 +16,7 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
       <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
         <a href="#top" aria-label="Spread Engine home"><se-logo [size]="30" /></a>
         <div class="hidden items-center gap-6 text-sm font-semibold text-muted md:flex">
+          <a href="#stacks" class="hover:text-brand">Stacks</a>
           <a href="#demo" class="hover:text-brand">Demo</a>
           <a href="#features" class="hover:text-brand">What it does</a>
           <a href="#steps" class="hover:text-brand">Steps</a>
@@ -85,6 +86,40 @@ import { AUDIENCE, CODE, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STEPS, 
               <span class="chip"><svg [lucideIcon]="s.icon" [size]="15" class="text-brand" /> {{ s.label }}</span>
             }
           </div>
+        </div>
+      </section>
+
+      <!-- Stacks -->
+      <section id="stacks" class="mx-auto max-w-6xl px-4 pt-16">
+        <p class="eyebrow">Stacks</p>
+        <h2 class="mt-2 text-3xl font-extrabold sm:text-4xl">One engine. Your choice of stack.</h2>
+        <p class="mt-2 max-w-2xl text-muted">Pick a stack when you create a project. Each stack is its own package with its own versions, so new stacks never break old ones.</p>
+        <div class="card mt-6 overflow-hidden bg-[#0b1220] font-mono text-[12.5px] leading-relaxed text-slate-300">
+          <div class="p-4 sm:p-5">
+            <p><span class="text-brand-3">$</span> npx create-spread-app my-app</p>
+            <p class="pt-1"><span class="text-brand-4">?</span> Choose a stack</p>
+            @for (s of stacks; track s.name; let first = $first) {
+              <p class="pl-3" [class]="first ? 'text-white' : 'text-slate-500'">{{ first ? '●' : '○' }} {{ s.name }} <span class="text-slate-500">– {{ s.tech.slice(0, 3).join(' + ') }}</span>@if (!s.live) { <span class="text-slate-600"> (coming soon)</span> }</p>
+            }
+          </div>
+        </div>
+        <div class="mt-4 grid gap-3 md:grid-cols-3">
+          @for (s of stacks; track s.name) {
+            <div class="card relative flex flex-col p-5 transition hover:-translate-y-1 hover:shadow-lg" [class]="s.live ? '!border-brand-3 ring-4 ring-brand-50' : 'hover:border-brand-3'">
+              <span class="absolute top-4 right-4 rounded-full px-2 py-0.5 text-[10px] font-bold" [class]="s.live ? 'bg-brand text-white' : 'bg-slate-100 text-muted'">{{ s.status }}</span>
+              <span class="grid size-11 place-items-center rounded-xl" [class]="s.live ? 'bg-gradient-to-br from-brand to-brand-2 text-white' : 'bg-brand-50 text-brand'"><svg [lucideIcon]="s.icon" [size]="22" /></span>
+              <h3 class="mt-4 text-lg font-bold">{{ s.name }}</h3>
+              <p class="mt-1 text-sm text-muted">{{ s.text }}</p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                @for (t of s.tech; track t) { <span class="rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-semibold text-brand">{{ t }}</span> }
+              </div>
+              <code class="mt-auto block truncate pt-4 text-[11px] text-muted">{{ s.pkg }}</code>
+              <a href="#join" class="mt-3 text-sm font-semibold text-brand hover:underline">{{ s.live ? 'Get early access →' : 'Notify me →' }}</a>
+            </div>
+          }
+          <a href="#join" class="card grid place-items-center border-dashed p-5 text-center text-sm text-muted transition hover:border-brand-3 hover:text-brand md:col-span-3">
+            <span><b class="text-ink">Want another stack?</b> Tell us on the waitlist what you build with — the most requested stack comes next.</span>
+          </a>
         </div>
       </section>
 
@@ -339,6 +374,7 @@ export class Home {
   protected readonly year = new Date().getFullYear();
   protected readonly stack = STACK;
   protected readonly techs = TECHS;
+  protected readonly stacks = STACKS;
   protected readonly features = FEATURES;
   protected readonly audience = AUDIENCE;
   protected readonly steps = STEPS;

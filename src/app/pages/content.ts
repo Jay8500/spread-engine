@@ -9,6 +9,25 @@ export const STACK = [
   { icon: 'smartphone', label: 'PWA' },
 ];
 
+/** Engine stacks: one CLI, a separate versioned package per stack. */
+export const STACKS = [
+  {
+    icon: 'layers', name: 'Web app', pkg: '@spreadapps/stack-angular', status: 'Building now', live: true,
+    text: 'Full web apps with login, database, emails and deploy.',
+    tech: ['Angular 22', 'Tailwind v4', 'Supabase', 'Netlify', 'Resend', 'PWA'],
+  },
+  {
+    icon: 'server', name: 'Classic', pkg: '@spreadapps/stack-classic', status: 'Coming soon', live: false,
+    text: 'For company and enterprise projects with your own API and SQL database.',
+    tech: ['Angular', 'REST API', 'SQL Server', 'JWT auth'],
+  },
+  {
+    icon: 'sparkles', name: 'Python ML', pkg: '@spreadapps/stack-python-ml', status: 'Coming soon', live: false,
+    text: 'Train a model, serve it as an API and show it in a simple web page.',
+    tech: ['Python', 'FastAPI', 'Notebook', 'Docker'],
+  },
+];
+
 /** "Know the stack" cards: what each tool is, why it's here, and where to learn it. */
 export const TECHS = [
   { icon: 'layers', name: 'Angular', by: 'by Google', what: 'A complete framework for web apps: routing, forms, SSR and signals built in.', why: 'Stable, typed, great for long-lived client projects and teams.', url: 'https://angular.dev' },
@@ -217,5 +236,5 @@ export const FAQ = [
   { q: 'Do I have to give you my Supabase or Netlify keys?', a: 'Never. You log in to your own accounts in your browser and the keys go straight into your project and your Netlify settings.' },
   { q: 'Can students use it for a final-year project?', a: 'Yes, as a learning kit. You build your own features on top, and the docs explain every part so you can present and answer viva questions with confidence.' },
   { q: 'What happens when Angular releases a new version?', a: 'The engine’s major version follows Angular’s (engine 22 → Angular 22). After each Angular release we publish a matching version and an upgrade guide.' },
-  { q: 'React or Vue?', a: 'Not for now. Spread Engine focuses on doing Angular really well.' },
+  { q: 'Only Angular? What about Python, React or others?', a: 'The engine works with stacks. The Angular web app stack comes first; Classic (API + SQL Server) and Python ML stacks are planned next. Each stack is its own package, so one never breaks another. Tell us on the waitlist which stack you want.' },
 ];
