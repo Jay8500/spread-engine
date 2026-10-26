@@ -5,7 +5,7 @@ Made with ❤️ for India by Spread Apps™ · https://engine.spreadapps.in
 Spread Engine sets up an Angular app with Tailwind, Supabase (login + database), Resend emails, PWA and Netlify deploy.
 This guide gets your computer and accounts ready. Do it once, then every new project takes about 10 minutes.
 
-> Status: coming soon. The commands below show how the engine will work at launch. Join the waitlist to get it first.
+> Status: **v0.1 is out** — creating, running and going live work today. `npx spread connect` (Supabase login) and emails come in the next versions.
 
 ---
 
@@ -36,7 +36,7 @@ git --version
 ## 2. Create your project
 
 ```bash
-npm create spread-app@latest my-app
+npx create-spread-app@latest my-app
 ```
 
 Answer the questions. Not sure? Pick a preset:
