@@ -1,0 +1,34 @@
+{
+  "name": "create-spread-app",
+  "version": "0.1.0",
+  "description": "Create an Angular app with Tailwind CSS, prerendering and Netlify deploy in one command. By Spread Apps.",
+  "type": "module",
+  "bin": {
+    "create-spread-app": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "template"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "homepage": "https://engine.spreadapps.in",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jay8500/spread-engine.git",
+    "directory": "packages/create-spread-app"
+  },
+  "bugs": "https://github.com/Jay8500/spread-engine/issues",
+  "keywords": [
+    "angular",
+    "tailwindcss",
+    "netlify",
+    "supabase",
+    "starter",
+    "create-app",
+    "cli"
+  ],
+  "author": "Spread Apps",
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+/* Brand colours — change --color-brand and every shade follows. Use them as bg-brand, text-brand-700, border-brand-100… */
+@theme {
+  --color-brand: __BRAND__;
+  --color-brand-50: color-mix(in oklab, var(--color-brand) 8%, white);
+  --color-brand-100: color-mix(in oklab, var(--color-brand) 18%, white);
+  --color-brand-700: color-mix(in oklab, var(--color-brand) 80%, black);
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,30 @@
+# Netlify build settings (created by create-spread-app)
+[build]
+  command = "npm run build"
+  publish = "dist/__NAME__/browser"
+
+# Pages that were not prerendered fall back to the client-side app
+[[redirects]]
+  from = "/*"
+  to = "/index.csr.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Hashed files never change, so browsers can keep them for a year
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
