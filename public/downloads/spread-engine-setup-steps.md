@@ -13,15 +13,17 @@ This guide gets your computer and accounts ready. Do it once, then every new pro
 
 | ✔ | What | Where | Needed? |
 |---|------|-------|---------|
-| ☐ | Node.js 22.12 or newer (24 LTS recommended) | https://nodejs.org | Yes |
-| ☐ | Git | https://git-scm.com | Yes |
-| ☐ | VS Code (or any editor) | https://code.visualstudio.com | Yes |
-| ☐ | GitHub account | https://github.com | Yes |
-| ☐ | Supabase account (free) | https://supabase.com | Yes |
-| ☐ | Netlify account (free) | https://netlify.com | Yes |
-| ☐ | Resend account (free) | https://resend.com | For emails |
+| ☐ | Node.js 22.12 or newer (24 LTS recommended) | https://nodejs.org | Yes — to create the app |
+| ☐ | Git | https://git-scm.com | Yes — to create the app |
+| ☐ | VS Code (or any editor) | https://code.visualstudio.com | Yes — to create the app |
+| ☐ | GitHub account (free) | https://github.com | To go live |
+| ☐ | Netlify account (free) | https://netlify.com | To go live |
+| ☐ | Supabase account (free) | https://supabase.com | Only if you want login or a database |
+| ☐ | Resend account (free) | https://resend.com | Only if you send emails |
+| ☐ | Razorpay account | https://razorpay.com | Only if you take payments |
 | ☐ | Your own domain | Any registrar | Optional |
-| ☐ | Razorpay account | https://razorpay.com | Only for payments (Pro) |
+
+Supabase, Resend and Razorpay are **your choice** — the engine asks which features you want and only those need an account.
 
 Check your computer:
 

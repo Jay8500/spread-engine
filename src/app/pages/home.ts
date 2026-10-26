@@ -5,7 +5,7 @@ import { CodeBlock } from '../shared/code-block';
 import { Icon } from '../shared/icon';
 import { EngineLogo, EngineMark } from '../shared/logo';
 import { Waitlist } from '../shared/waitlist';
-import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS, STEPS, TECHS, VERSIONS } from './content';
+import { AUDIENCE, CODE, CREDITS, FAQ, NEED_LABEL, FEATURES, PREREQS, PRESETS, SAFETY, STACK, STACKS, STEPS, TECHS, VERSIONS } from './content';
 
 /** Cover page for engine.spreadapps.in — what the engine does, setup steps, code, versions + waitlist. */
 @Component({
@@ -218,7 +218,7 @@ import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK
             <div>
               <p class="eyebrow">Before you start</p>
               <h2 class="mt-2 text-3xl font-extrabold sm:text-4xl">Requirements checklist.</h2>
-              <p class="mt-2 text-muted">All free to start. Tick them off as you go — your ticks stay on this device.</p>
+              <p class="mt-2 text-muted">To create an app you only need the first three. Supabase, Resend and Razorpay are your choice — only for the features you pick.</p>
             </div>
             <a href="downloads/spread-engine-setup-steps.md" download class="btn btn-primary"><svg lucideIcon="download" [size]="18" /> Download full steps</a>
           </div>
@@ -234,7 +234,7 @@ import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK
                   <span>
                     <span class="flex flex-wrap items-center gap-1.5 font-bold" [class.line-through]="done()[i]" [class.text-muted]="done()[i]">
                       {{ p.title }}
-                      @if (!p.must) { <span class="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-muted ring-1 ring-line">optional</span> }
+                      <span class="rounded-full px-1.5 py-0.5 text-[10px] font-bold" [class]="p.need === 'must' ? 'bg-brand text-white' : p.need === 'live' ? 'bg-brand-50 text-brand ring-1 ring-brand-100' : 'bg-white text-muted ring-1 ring-line'">{{ needLabel[p.need] }}</span>
                     </span>
                     <span class="mt-0.5 block text-sm text-muted">{{ p.text }}</span>
                   </span>
@@ -400,6 +400,7 @@ export class Home {
   protected readonly techs = TECHS;
   protected readonly stacks = STACKS;
   protected readonly credits = CREDITS;
+  protected readonly needLabel = NEED_LABEL;
   protected readonly features = FEATURES;
   protected readonly audience = AUDIENCE;
   protected readonly steps = STEPS;

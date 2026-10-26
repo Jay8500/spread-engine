@@ -98,17 +98,20 @@ export const STEPS = [
   },
 ];
 
-export const PREREQS = [
-  { title: 'Node.js 22.12+ (24 LTS recommended)', text: 'nodejs.org → download the LTS version.', must: true },
-  { title: 'Git', text: 'git-scm.com → install with default options.', must: true },
-  { title: 'A code editor', text: 'VS Code is free and works great with Angular.', must: true },
-  { title: 'GitHub account', text: 'To keep your code and auto-deploy to Netlify.', must: true },
-  { title: 'Supabase account (free)', text: 'supabase.com → database, login and storage.', must: true },
-  { title: 'Netlify account (free)', text: 'netlify.com → hosting, functions and env vars.', must: true },
-  { title: 'Resend account (free)', text: 'resend.com → emails. Verify a sub-domain like mail.yoursite.in.', must: false },
-  { title: 'Your own domain', text: 'Optional. A free .netlify.app address works to start.', must: false },
-  { title: 'Razorpay account', text: 'Only if you need payments (Pro). KYC takes a few days.', must: false },
+/** need: 'must' = to create the app · 'live' = to put it online · 'optional' = only if you pick that feature. */
+export const PREREQS: { title: string; text: string; need: 'must' | 'live' | 'optional' }[] = [
+  { title: 'Node.js 22.12+ (24 LTS recommended)', text: 'nodejs.org → download the LTS version.', need: 'must' },
+  { title: 'Git', text: 'git-scm.com → install with default options.', need: 'must' },
+  { title: 'A code editor', text: 'VS Code is free and works great with Angular.', need: 'must' },
+  { title: 'GitHub account (free)', text: 'To keep your code and auto-deploy to Netlify.', need: 'live' },
+  { title: 'Netlify account (free)', text: 'netlify.com → hosting, functions and env vars.', need: 'live' },
+  { title: 'Supabase account (free)', text: 'Only if you want login or a database. supabase.com', need: 'optional' },
+  { title: 'Resend account (free)', text: 'Only if you send emails. Verify a sub-domain like mail.yoursite.in.', need: 'optional' },
+  { title: 'Razorpay account', text: 'Only if you take payments. KYC takes a few days.', need: 'optional' },
+  { title: 'Your own domain', text: 'A free .netlify.app address works to start.', need: 'optional' },
 ];
+
+export const NEED_LABEL = { must: 'needed', live: 'to go live', optional: 'only if you use it' } as const;
 
 export const PRESETS = [
   { icon: 'zap', title: 'Blank', text: 'Login + theme + deploy. The cleanest start.' },
