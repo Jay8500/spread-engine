@@ -37,7 +37,7 @@ import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK
           <div>
             <p class="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-bold text-brand">
               <span class="relative flex size-2"><span class="absolute inline-flex size-full animate-ping rounded-full bg-brand-2 opacity-70"></span><span class="relative inline-flex size-2 rounded-full bg-brand"></span></span>
-              Coming soon · Made with <span class="text-rose-500">❤️</span> for India
+              v0.1 is out · Made with <span class="text-rose-500">❤️</span> for India
             </p>
             <h1 class="mt-5 text-4xl leading-[1.08] font-extrabold sm:text-5xl md:text-[3.4rem]">
               Your next Angular app, <span class="bg-gradient-to-r from-brand to-brand-3 bg-clip-text text-transparent">ready in 10 minutes.</span>
@@ -50,6 +50,10 @@ import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK
               <a href="#join" class="btn btn-primary">Join the waitlist <svg lucideIcon="chevron-right" [size]="18" /></a>
               <a href="#demo" class="btn btn-ghost"><span class="text-xs">▶</span> Watch the demo</a>
               <a href="downloads/spread-engine-setup-steps.md" download class="btn btn-ghost"><svg lucideIcon="download" [size]="18" /> Setup steps</a>
+            </div>
+            <div class="mt-5 max-w-md">
+              <p class="text-xs font-semibold text-muted">Try it now — free:</p>
+              <se-code class="mt-1" file="terminal" code="npx create-spread-app@latest my-app" />
             </div>
             <p class="mt-4 text-xs text-muted">Free core · Your accounts, your keys · Plain code, no lock-in</p>
           </div>
@@ -133,7 +137,7 @@ import { AUDIENCE, CODE, CREDITS, FAQ, FEATURES, PREREQS, PRESETS, SAFETY, STACK
           <video class="block aspect-[1120/460] w-full bg-slate-50" src="demo/how-it-works.mp4" poster="demo/how-it-works.jpg"
                  controls playsinline muted loop preload="none" aria-label="Spread Engine how-it-works video: create, connect, start, stop, go live"></video>
         </div>
-        <p class="mt-3 text-xs text-muted">Walkthrough of the planned workflow (34 s, no sound). A recording of the real tool comes with the first release.</p>
+        <p class="mt-3 text-xs text-muted">Walkthrough (34 s, no sound). v0.1 already does Create, Start, Stop and Go live; Connect (Supabase login) comes in v0.2.</p>
       </section>
 
       <!-- Features -->

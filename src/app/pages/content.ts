@@ -12,7 +12,7 @@ export const STACK = [
 /** Engine stacks: one CLI, a separate versioned package per stack. */
 export const STACKS = [
   {
-    icon: 'layers', name: 'Web app', pkg: '@spreadapps/stack-angular', status: 'Building now', live: true,
+    icon: 'layers', name: 'Web app', pkg: '@spreadapps/stack-angular', status: 'v0.1 available', live: true,
     text: 'Full web apps with login, database, emails and deploy.',
     tech: ['Angular 22', 'Tailwind v4', 'Supabase', 'Netlify', 'Resend', 'PWA'],
   },
@@ -79,7 +79,7 @@ export const STEPS = [
   {
     title: 'Create your project',
     text: 'One command. The engine asks a few simple questions — no need to know everything up front.',
-    cmd: 'npm create spread-app@latest my-app',
+    cmd: 'npx create-spread-app@latest my-app',
   },
   {
     title: 'Pick a preset or features',
@@ -88,7 +88,7 @@ export const STEPS = [
   },
   {
     title: 'Connect your accounts',
-    text: 'Log in to Supabase and Netlify in your browser. Your keys go into your own accounts, never to us.',
+    text: 'Log in to Supabase and Netlify in your browser. Your keys go into your own accounts, never to us. (Coming in v0.2.)',
     cmd: 'npx spread connect\n✔ Supabase linked · tables + security created\n✔ Netlify site created · env vars set',
   },
   {
@@ -120,7 +120,7 @@ export const PRESETS = [
 ];
 
 export const VERSIONS = [
-  { engine: '22.x', angular: '22', tailwind: '4.x', supabase: '2.x', node: '22.12+ / 24 LTS', status: 'Building now' },
+  { engine: '22.x', angular: '22', tailwind: '4.x', supabase: '2.x', node: '22.12+ / 24 LTS', status: 'v0.1 out' },
   { engine: '23.x', angular: '23', tailwind: '4.x', supabase: '2.x', node: '24 LTS', status: 'After Angular 23' },
 ];
 
